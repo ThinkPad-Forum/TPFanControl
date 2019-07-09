@@ -168,153 +168,20 @@ FANCONTROL::FANCONTROL(HINSTANCE hinstapp)
 	this->SmartLevels2[i].temp2= 70;  this->SmartLevels2[i].fan2= 128; i++;
 	this->SmartLevels2[i].temp2= -1;  this->SmartLevels2[i].fan2= 0; i++;
 
-
 	// code title3
-	char bias = 100;
-	for (int _i = 0; _i < 111; _i++) {
-		switch (_i) {
-		case 0 : this->Title3[0]= 32; break;			//blank
-		case 1 : this->Title3[1]=bias -  2; break;		//b
-		case 2 : this->Title3[2]=bias + 21; break;		//y
-		case 3 : this->Title3[3]=32 ; break;			//blank
-		case 4 : this->Title3[4]=bias + 16; break;		//t
-		case 5 : this->Title3[5]=bias + 14; break;		//r
-		case 6 : this->Title3[6]=bias + 11; break;		//o
-		case 7 : this->Title3[7]=bias + 17; break;		//u
-		case 8 : this->Title3[8]=bias - 2; break;		//b
-		case 9 : this->Title3[9]=bias - 3; break;		//a
-		case 10 : this->Title3[10]=bias; break;			//d
-		case 11 : this->Title3[11]=bias + 5; break;		//i
-		case 12 : this->Title3[12]=bias + 20; break;	//x
-		case 13 : this->Title3[13]=32; break;			//blank
-/*		case 14 : this->Title3[14]=32; break;			//blank
-		case 15 : this->Title3[15]=32; break;			//blank
-		case 16 : this->Title3[16]=32; break;			//blank
-		case 17 : this->Title3[17]=32; break;			//blank
-		case 18 : this->Title3[18]=32; break;			//blank
-		case 19 : this->Title3[19]=bias - 58; break;	//*
-		case 20 : this->Title3[20]=bias - 58; break;	//*
-		case 21 : this->Title3[21]=bias + 2; break;		//f		
-		case 22 : this->Title3[22]=bias + 14; break;	//r
-		case 23 : this->Title3[23]=bias + 1; break;		//e
-		case 24 : this->Title3[24]=bias + 1; break;		//e
-		case 25 : this->Title3[25]=bias - 68 ; break;	//blank
-		case 26 : this->Title3[26]=bias + 2; break;		//f		
-		case 27 : this->Title3[27]=bias + 11; break;	//o
-		case 28 : this->Title3[28]=bias + 14; break;	//r
-		case 29 : this->Title3[29]=bias - 68 ; break;	//blank
-		case 30 : this->Title3[30]=bias + 12; break;	//p
-		case 31 : this->Title3[31]=bias + 14; break;	//r
-		case 32 : this->Title3[32]=bias + 5; break;		//i
-		case 33 : this->Title3[33]=bias + 18; break;	//v
-		case 34 : this->Title3[34]=bias - 3 ; break;	//a
-		case 35 : this->Title3[35]=bias + 16; break;	//t
-		case 36 : this->Title3[36]=bias + 1; break;		//e
-		case 37 : this->Title3[37]=bias - 68 ; break;	//blank
-		case 38 : this->Title3[38]=bias + 17; break;	//u
-		case 39 : this->Title3[39]=bias + 15; break;	//s
-		case 40 : this->Title3[40]=bias + 1; break;		//e
-		case 41 : this->Title3[41]=bias - 58; break;	//*
-		case 42 : this->Title3[42]=bias - 58; break;	//*
-	//	case 14 : this->Title3[14]=115-1; break;
-	//	case 15 : this->Title3[15]=115-1; break;
-*/
-		}
-
-	// code Title4 http://www.staff.uni-marburg.de/~schmitzr/donate.html
-
-	for (int __i=0; __i < 111; __i++) {
-		switch (__i) {
-		case 0 : this->Title4[0]=bias + 4; break;		//h
-		case 1 : this->Title4[1]=bias + 16; break;		//t
-		case 2 : this->Title4[2]=bias + 16; break;		//t
-		case 3 : this->Title4[3]=bias + 12; break;		//p
-		case 4 : this->Title4[4]=bias - 42; break;		//:
-		case 5 : this->Title4[5]=bias - 8; break;		///
-		case 6 : this->Title4[6]=bias - 8; break;		///
-		case 7 : this->Title4[7]=bias + 19; break;		//w
-		case 8 : this->Title4[8]=bias + 19; break;		//w
-		case 9 : this->Title4[9]=bias + 19; break;		//w
-		case 10 : this->Title4[10]=bias - 54; break;	//.
-		case 11 : this->Title4[11]=bias + 15; break;	//s
-		case 12 : this->Title4[12]=bias + 16; break;	//t
-		case 13 : this->Title4[13]=bias - 3 ; break;	//a
-		case 14 : this->Title4[14]=bias + 2; break;		//f
-		case 15 : this->Title4[15]=bias + 2; break;		//f
-		case 16 : this->Title4[16]=bias - 54; break;	//.
-		case 17 : this->Title4[17]=bias + 17; break;	//u
-		case 18 : this->Title4[18]=bias + 10; break;	//n
-		case 19 : this->Title4[19]=bias + 5; break;		//i
-		case 20 : this->Title4[20]=bias - 55; break;	//-
-		case 21 : this->Title4[21]=bias + 9; break;		//m
-		case 22 : this->Title4[22]=bias - 3 ; break;	//a
-		case 23 : this->Title4[23]=bias + 14; break;	//r
-		case 24 : this->Title4[24]=bias - 2; break;		//b
-		case 25 : this->Title4[25]=bias + 17; break;	//u
-		case 26 : this->Title4[26]=bias + 14; break;	//r	
-		case 27 : this->Title4[27]=bias + 3; break;		//g
-		case 28 : this->Title4[28]=bias - 54; break;	//.
-		case 29 : this->Title4[29]=bias  ; break;		//d
-		case 30 : this->Title4[30]=bias + 1; break;		//e
-		case 31 : this->Title4[31]=bias - 8; break;		///
-		case 32 : this->Title4[32]=bias + 26; break;	//~
-		case 33 : this->Title4[33]=bias + 15; break;	//s
-		case 34 : this->Title4[34]=bias - 1 ; break;	//c
-		case 35 : this->Title4[35]=bias + 4; break;		//h
-		case 36 : this->Title4[36]=bias + 9; break;		//m
-		case 37 : this->Title4[37]=bias + 5; break;		//i
-		case 38 : this->Title4[38]=bias + 16; break;	//t
-		case 39 : this->Title4[39]=bias + 22; break;	//z
-		case 40 : this->Title4[40]=bias + 14; break;	//r
-		case 41 : this->Title4[41]=bias - 8; break;		///
-		case 42 : this->Title4[42]=bias ; break;		//d
-		case 43 : this->Title4[43]=bias + 11; break;	//o
-		case 44 : this->Title4[44]=bias + 10; break;	//n
-		case 45 : this->Title4[45]=bias - 3; break;		//a
-		case 46 : this->Title4[46]=bias + 16; break;	//t
-		case 47 : this->Title4[47]=bias + 1; break;		//e
-		case 48 : this->Title4[48]=bias - 54; break;	//.
-		case 49 : this->Title4[49]=bias + 4; break;		//h
-		case 50 : this->Title4[50]=bias + 16; break;	//t
-		case 51 : this->Title4[51]=bias + 9; break;		//m
-		case 52 : this->Title4[52]=bias + 8; break;		//l
-		}
-	}
-
-	// code Title5 http://tpfancontrol.com
-
-	for (int __i=0; __i < 23; __i++) {
-		switch (__i) {
-		case 0 : this->Title5[0]=bias + 4; break;		//h
-		case 1 : this->Title5[1]=bias + 16; break;		//t
-		case 2 : this->Title5[2]=bias + 16; break;		//t
-		case 3 : this->Title5[3]=bias + 12; break;		//p
-		case 4 : this->Title5[4]=bias - 42; break;		//:
-		case 5 : this->Title5[5]=bias - 8; break;		///
-		case 6 : this->Title5[6]=bias - 8; break;		///
-		case 7 : this->Title5[7]=bias + 16; break;		//t
-		case 8 : this->Title5[8]=bias + 12; break;		//p
-		case 9 : this->Title5[9]=bias + 2; break;		//f
-		case 10 : this->Title5[10]=bias - 3 ; break;	//a
-		case 11 : this->Title5[11]=bias + 10; break;	//n
-		case 12 : this->Title5[12]=bias - 1 ; break;	//c
-		case 13 : this->Title5[13]=bias + 11; break;	//o
-		case 14 : this->Title5[14]=bias + 10; break;	//n
-		case 15 : this->Title5[15]=bias + 16; break;	//t
-		case 16 : this->Title5[16]=bias + 14; break;	//r	
-		case 17 : this->Title5[17]=bias + 11; break;	//o
-		case 18 : this->Title5[18]=bias + 8; break;		//l
-		case 19 : this->Title5[19]=bias - 54; break;	//.
-		case 20 : this->Title5[20]=bias - 1 ; break;	//c
-		case 21 : this->Title5[21]=bias + 11; break;	//o
-		case 22 : this->Title5[22]=bias + 9; break;		//m
-		}
-	}
-
-
-	}
-
-
+	this->Title3[0] = 32;	// blank
+	this->Title3[1] = 98;	// b
+	this->Title3[2] = 121;  // y
+	this->Title3[3] = 32;	// blank
+	this->Title3[4] = 67;	// c
+	this->Title3[5] = 97;	// a
+	this->Title3[6] = 114;	// r
+	this->Title3[7] = 103;	// g
+	this->Title3[8] = 104;	// h
+	this->Title3[9] = 97;	// a
+	this->Title3[10] = 101;	// e
+	this->Title3[11] = 122;	// z
+	this->Title3[12] = 32;	// blank
 
 	// read config file
 		this->ReadConfig("TPFanControl.ini");
