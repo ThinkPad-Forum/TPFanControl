@@ -25,6 +25,9 @@
 #define TP_ECOFFSET_FANSPEED (char)0x84 // 16 bit word, lo/hi byte
 #define TP_ECOFFSET_TEMP0    (char)0x78	// 8 temp sensor bytes from here
 #define TP_ECOFFSET_TEMP1    (char)0xC0 // 4 temp sensor bytes from here
+#define TP_ECOFFSET_FAN1	 (char)0x0000
+#define TP_ECOFFSET_FAN2	 (char)0x0001
+#define TP_ECOFFSET_FAN_SWITCH (char)0x31
 
 
 
@@ -116,7 +119,7 @@ FANCONTROL::HandleData(void)
 	}
 	else {
 		if (!(SlimDialog && StayOnTop))
-			sprintf_s(obuf2+strlen(obuf2),sizeof(obuf2)-strlen(obuf2), " Non Bios", fanctrl & 0x3F);
+			sprintf_s(obuf2+strlen(obuf2),sizeof(obuf2)-strlen(obuf2), " Non Bios %d", fanctrl & 0x3F);
 		sprintf_s(title2+strlen(title2),sizeof(title2)-strlen(title2), " Fan %d (%s)",
 						 fanctrl & 0x3F,
 						 this->CurrentModeFromDialog()==2 ? "Smart" : "Fixed");
@@ -410,10 +413,17 @@ FANCONTROL::SetFan(const char *source, int fanctrl, BOOL final)
         for (int i = 0; i < 5; i++)
         {
 		    // set new fan level
+			ok = this->WriteByteToEC(TP_ECOFFSET_FAN_SWITCH, TP_ECOFFSET_FAN1);
 		    ok= this->WriteByteToEC(TP_ECOFFSET_FAN, fanctrl);
+
+			::Sleep(300);
+			ok = this->WriteByteToEC(TP_ECOFFSET_FAN_SWITCH, TP_ECOFFSET_FAN2);
+			ok = this->WriteByteToEC(TP_ECOFFSET_FAN, fanctrl);
 
 		    // verify completion
 		    ok= this->ReadByteFromEC(TP_ECOFFSET_FAN, &this->State.FanCtrl);
+			ok = this->WriteByteToEC(TP_ECOFFSET_FAN_SWITCH, TP_ECOFFSET_FAN1);
+			ok = this->ReadByteFromEC(TP_ECOFFSET_FAN, &this->State.FanCtrl);
 
             if (this->State.FanCtrl == fanctrl)
                 break;
