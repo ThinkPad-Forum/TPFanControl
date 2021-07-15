@@ -1096,9 +1096,9 @@ switch (msg) {
 				if (temp < 128 && temp!= 0) 
 				{
 					if (Fahrenheit)
-						sprintf_s(obuf2,sizeof(obuf2), "%däF", temp* 9 /5 +32);
+						sprintf_s(obuf2,sizeof(obuf2), "%d°F", temp* 9 /5 +32);
 					else
-						sprintf_s(obuf2, sizeof(obuf2), "%däC", temp);
+						sprintf_s(obuf2, sizeof(obuf2), "%d°C", temp);
 
 					size_t strlen_templist2 = strlen_s(templist2,sizeof(templist2));
 
