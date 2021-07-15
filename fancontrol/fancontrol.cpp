@@ -1162,7 +1162,7 @@ switch (msg) {
 										sprintf_s(obuf+strlen(obuf),sizeof(obuf)-strlen(obuf), "Activation of Fan Control Profile 'Smart Mode 1'");
 									this->Trace(obuf);}
 									this->IndSmartLevel = 0;
-// räberkopieren
+// rüberkopieren
 						for (int i= 0; i<32; i++) {
 									this->SmartLevels[i].temp = this->SmartLevels1[i].temp1; 
 									this->SmartLevels[i].fan = this->SmartLevels1[i].fan1;
@@ -1261,7 +1261,7 @@ switch (msg) {
 
 		case WM_CLOSE:
 				//if (this->MinimizeOnClose && (this->MinimizeToSysTray || this->Runs_as_service))   // 0.24 new:  || this->Runs_as_service) 
-				//{MessageBox(NULL, "will Fenster schlieäen", "TPFanControl", MB_ICONEXCLAMATION);
+				//{MessageBox(NULL, "will Fenster schließen", "TPFanControl", MB_ICONEXCLAMATION);
 				::ShowWindow(this->hwndDialog, SW_MINIMIZE);   //}
 				rc= TRUE;
 				break;
@@ -1545,28 +1545,28 @@ void FANCONTROL::ProcessTextIcons(void){
 			case 0:
 			break;
 			case 1:
-			icon = 21; //sehr hell grän
+			icon = 21; //sehr hell grün
 			break;
 			case 2:
-			icon = 22; //hell grän
+			icon = 22; //hell grün
 			break;
 			case 3:
-			icon = 23; //grän
+			icon = 23; //grün
 			break;
 			case 4:
-			icon = 24; //dunkel grän
+			icon = 24; //dunkel grün
 			break;
 			case 5:
-			icon = 25; //sehr dunkel grän
+			icon = 25; //sehr dunkel grün
 			break;
 			case 6:
-			icon = 25; //sehr dunkel grän
+			icon = 25; //sehr dunkel grün
 			break;
 			case 7:
-			icon = 25; //sehr dunkel grän
+			icon = 25; //sehr dunkel grün
 			break;
 			case 8:
-			icon = 25; //sehr dunkel grän
+			icon = 25; //sehr dunkel grün
 			break;
 			default:
 			icon = oldicon;
@@ -1599,11 +1599,11 @@ void FANCONTROL::ProcessTextIcons(void){
 		
 			if (dishow && !this->NoBallons){
 				if (Fahrenheit){
-					ppTbTextIcon[0]->DiShowballon(_T("shows max. temperature in äF and sensor name, left click on icon shows or hides control window, right click shows menue"),
+					ppTbTextIcon[0]->DiShowballon(_T("shows max. temperature in °F and sensor name, left click on icon shows or hides control window, right click shows menue"),
 						_T("TPFanControl new text icon"),NIIF_INFO,11);
 				}
 				else {
-					ppTbTextIcon[0]->DiShowballon(_T("shows max. temperature in äC and sensor name, left click on icon shows or hides control window, right click shows menue"),
+					ppTbTextIcon[0]->DiShowballon(_T("shows max. temperature in °C and sensor name, left click on icon shows or hides control window, right click shows menue"),
 						_T("TPFanControl new text icon"),NIIF_INFO,11);
 				}
 
