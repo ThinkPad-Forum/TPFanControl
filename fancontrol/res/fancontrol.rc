@@ -144,7 +144,6 @@ END
 
 5000 MENU 
 BEGIN
-    MENUITEM "Thinklight",                  5060
     MENUITEM "Bluetooth",                   5040
     MENUITEM SEPARATOR
     MENUITEM "Show Window",                 5010
